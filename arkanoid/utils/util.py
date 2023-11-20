@@ -21,8 +21,9 @@ def load_png(filename):
     """
     if not filename.lower().endswith('.png'):
         filename = '{}.png'.format(filename)
-    fullpath = os.path.join(os.path.dirname(__file__), '..', 'data',
-                            'graphics', filename)
+    # Get the path the program is running from.
+    path = os.path.dirname(__file__)
+    fullpath = os.path.join(path, 'data', filename)
     if not os.path.exists(fullpath):
         raise FileNotFoundError('File not found: {}'.format(fullpath))
 
